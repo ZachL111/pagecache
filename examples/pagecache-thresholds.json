@@ -1,0 +1,17 @@
+{
+  "repo": "pagecache",
+  "thresholds": {
+    "signal": 3,
+    "slack": 1,
+    "confidence": 2,
+    "drag": 5,
+    "ship": 197,
+    "watch": 100
+  },
+  "terms": [
+    "allocation pressure",
+    "dirty state",
+    "guard slack",
+    "layout drift"
+  ]
+}
