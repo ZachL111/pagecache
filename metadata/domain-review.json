@@ -1,0 +1,73 @@
+{
+  "repo": "pagecache",
+  "language": "C",
+  "category": "Systems programming",
+  "goal": "Simulate page-cache eviction and dirty-page flushing.",
+  "review_model": {
+    "terms": [
+      "allocation pressure",
+      "dirty state",
+      "guard slack",
+      "layout drift"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "allocation pressure",
+      "signal": 42,
+      "slack": 32,
+      "drag": 26,
+      "confidence": 53,
+      "score": 91,
+      "lane": "hold"
+    },
+    {
+      "name": "stress",
+      "focus": "dirty state",
+      "signal": 63,
+      "slack": 49,
+      "drag": 24,
+      "confidence": 72,
+      "score": 175,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "guard slack",
+      "signal": 63,
+      "slack": 28,
+      "drag": 14,
+      "confidence": 51,
+      "score": 163,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "layout drift",
+      "signal": 51,
+      "slack": 44,
+      "drag": 17,
+      "confidence": 71,
+      "score": 166,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "allocation pressure",
+      "signal": 72,
+      "slack": 32,
+      "drag": 31,
+      "confidence": 64,
+      "score": 147,
+      "lane": "ship"
+    }
+  ]
+}
